@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: aaservice1-infra
+  namespace: flux-config
+spec:
+  releaseName: aaservice1-infra
+  chart:
+    spec:
+      chart: aaservice1-infra
+      version: "4.32.5"
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: aaprogramme-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: aaprogramme
+  values:
+    namespace: aaprogramme
