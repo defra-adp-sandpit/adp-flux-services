@@ -6,28 +6,22 @@ metadata:
 spec:
   chart:
     spec:
-      version: "4.32.10" # {"$imagepolicy": "flux-config:drservice1-snd-01:tag"}
+      version: "4.3.14" # {"$imagepolicy": "flux-config:drservice1-snd-01:tag"}
   values:
     environment: production
     name: drservice1
-    namespace: drprogramme
-    image: sndadpinfcr1401.azurecr.io/image/drservice1:4.32.10 # {"$imagepolicy": "flux-config:drservice1-snd-01"}
+    namespace: ffc-demo
+    image: sndadpinfcr1401.azurecr.io/image/drservice1:4.3.14 # {"$imagepolicy": "flux-config:drservice1-snd-01"}
     serviceAccount:
       name: drservice1
-    labels:
-      component: web
-    container:
-      imagePullPolicy: Always
-      requestMemory: 50Mi
-      requestCpu: 50m
-      limitMemory: 200Mi
-      limitCpu: 400m
-    ingress:
-      class: nginx
-      endpoint: drservice1
-      server: snd1.adp.defra.gov.uk
     deployment:
       priorityClassName: default
+    container:
+      imagePullPolicy: Always
+      requestMemory: 5Mi
+      requestCpu: 5m
+      limitMemory: 60Mi
+      limitCpu: 40m
     containerConfigMap:
       configServiceName: ${APPCONFIG_NAME}
       configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
