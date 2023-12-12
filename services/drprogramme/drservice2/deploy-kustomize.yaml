@@ -5,7 +5,7 @@ metadata:
   namespace: flux-config
 spec:
   dependsOn:
-    - name: drservice2-infra
+    - name: drservice2-pre-deploy
       namespace: flux-config
   sourceRef:
     kind: GitRepository
