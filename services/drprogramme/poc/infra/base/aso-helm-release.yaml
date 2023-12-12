@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: poc-infra
+  namespace: flux-config
+spec:
+  releaseName: poc-infra
+  chart:
+    spec:
+      chart: poc-infra
+      version: "4.32.5"
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: drprogramme-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: drprogramme
+  values:
+    namespace: drprogramme
