@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-demo-claim-service
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: __VERSION__
+  values:
+    environment: production
+    name: ffc-demo-claim-service
+    namespace: ffc-demo
+    image: __ENVIRONMENT__adpinfcr__ENV_INSTANCE__401.azurecr.io/image/ffc-demo-claim-service:__VERSION__
+    serviceAccount:
+      name: ffc-demo-claim-service
+    labels:
+      component: web
+    container:
+      imagePullPolicy: Always
+    ingress:
+      class: nginx
+      endpoint: __INGRESS_ENDPOINT__
+      server: __ENVIRONMENT____ENV_INSTANCE__.adp.defra.gov.uk
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
