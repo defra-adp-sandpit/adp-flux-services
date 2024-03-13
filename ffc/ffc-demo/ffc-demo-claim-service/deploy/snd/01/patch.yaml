@@ -6,12 +6,12 @@ metadata:
 spec:
   chart:
     spec:
-      version: __VERSION__
+      version: 0.1.0
   values:
     environment: production
     name: ffc-demo-claim-service
     namespace: ffc-demo
-    image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service:__VERSION__
+    image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service:0.1.0
     serviceAccount:
       name: ffc-demo-claim-service
     container:
