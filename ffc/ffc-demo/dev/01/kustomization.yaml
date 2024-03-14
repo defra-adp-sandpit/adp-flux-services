@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - ../../base
 - ../../ffc-demo-web
-- ../../ffc-demo-claim-service
