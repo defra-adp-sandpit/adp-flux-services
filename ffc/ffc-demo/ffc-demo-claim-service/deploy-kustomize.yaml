@@ -1,20 +1,20 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: ffc-demo-web-deploy
+  name: ffc-demo-claim-service-deploy
   namespace: flux-config
   labels:
-    backstage.io/kubernetes-id: ffc-demo-web
+    backstage.io/kubernetes-id: ffc-demo-claim-service
     backstage.io/kubernetes-team: ffc-demo
 spec:
   dependsOn:
-  - name: ffc-demo-web-infra
+  - name: ffc-demo-claim-service-pre-deploy
     namespace: flux-config
   sourceRef:
     kind: GitRepository
     name: services-repository
     namespace: flux-config
-  path: ./services/ffc/ffc-demo/ffc-demo-web/deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
+  path: ./services/ffc/ffc-demo/ffc-demo-claim-service/deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
   interval: 5m
   timeout: 3m
   prune: true
@@ -22,7 +22,7 @@ spec:
   force: true
   postBuild:
     substitute:
-      SERVICE_NAME: ffc-demo-web
+      SERVICE_NAME: ffc-demo-claim-service
       TEAM_NAMESPACE: ${TEAM_NAMESPACE}
       TEAM_NAME: ${TEAM_NAME}
       APPCONFIG_NAME: ${APPCONFIG_NAME}
@@ -31,4 +31,4 @@ spec:
     - kind: ConfigMap
       name: adp-platform-vars
     - kind: ConfigMap
-      name: ffc-demo-web-mi-credential
+      name: ffc-demo-claim-service-mi-credential
