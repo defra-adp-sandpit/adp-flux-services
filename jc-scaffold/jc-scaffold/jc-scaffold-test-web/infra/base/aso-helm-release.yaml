@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jc-scaffold-test-web-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: jc-scaffold-test-web
+    backstage.io/kubernetes-team: jc-scaffold
+spec:
+  releaseName: jc-scaffold-test-web-infra
+  chart:
+    spec:
+      chart: jc-scaffold-test-web-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: jc-scaffold-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: jc-scaffold
+  values:
+    namespace: jc-scaffold
