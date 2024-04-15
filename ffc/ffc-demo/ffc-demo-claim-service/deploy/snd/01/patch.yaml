@@ -6,12 +6,12 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.0
+      version: '0.1.0 # {"$imagepolicy": "flux-config:__SERVICE_NAME__-__ENVIRONMENT__-0__ENV_INSTANCE__:tag"}'
   values:
     environment: production
     name: ffc-demo-claim-service
     namespace: ffc-demo
-    image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service:0.1.0
+    image: 'sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service:0.1.0 # {"$imagepolicy": "flux-config:__SERVICE_NAME__-__ENVIRONMENT__-0__ENV_INSTANCE__:tag"}'
     serviceAccount:
       name: ffc-demo-claim-service
     container:

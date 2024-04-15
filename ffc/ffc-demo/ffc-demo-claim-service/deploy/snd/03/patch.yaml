@@ -11,7 +11,7 @@ spec:
     environment: production
     name: ffc-demo-claim-service
     namespace: ffc-demo
-    image: 'sndadpinfcr2401.azurecr.io/image/ffc-demo-claim-service:0.1.0 # {"$imagepolicy": "flux-config:__SERVICE_NAME__-__ENVIRONMENT__-0__ENV_INSTANCE__:tag"}'
+    image: 'sndadpinfcr3401.azurecr.io/image/ffc-demo-claim-service:0.1.0 # {"$imagepolicy": "flux-config:__SERVICE_NAME__-__ENVIRONMENT__-0__ENV_INSTANCE__:tag"}'
     serviceAccount:
       name: ffc-demo-claim-service
     container:
