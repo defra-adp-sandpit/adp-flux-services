@@ -17,9 +17,9 @@ spec:
   path: ./services/ffc/ffc-demo/ffc-demo-claim-service/pre-deploy/post-migration/${ENVIRONMENT}/${ENVIRONMENT_ID}
   interval: 5m
   timeout: 3m
-  prune: true
-  wait: true
-  force: true
+  prune: "true"
+  wait: "true"
+  force: "true"
   postBuild:
     substitute:
       SHARED_POSTGRES_SERVER_01: ${SHARED_POSTGRES_SERVER_01}
