@@ -18,7 +18,7 @@ spec:
         name: ffc-demo-helm-repo
         namespace: flux-config
   install:
-    createNamespace: true
+    createNamespace: "true"
   interval: 5m0s
   targetNamespace: ffc-demo
   values:
