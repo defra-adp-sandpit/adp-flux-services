@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: adp-pets-demo-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: adp-pets-demo
+    backstage.io/kubernetes-team: fcp-demo
+spec:
+  releaseName: adp-pets-demo-infra
+  chart:
+    spec:
+      chart: adp-pets-demo-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-demo-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-demo
+  values:
+    namespace: fcp-demo
