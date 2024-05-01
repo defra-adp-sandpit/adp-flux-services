@@ -7,9 +7,6 @@ metadata:
     backstage.io/kubernetes-id: test-ingress-1
     backstage.io/kubernetes-team: test-demo
 spec:
-  dependsOn:
-  - name: test-ingress-1-__DEPENDS_ON__
-    namespace: flux-config
   sourceRef:
     kind: GitRepository
     name: services-repository
