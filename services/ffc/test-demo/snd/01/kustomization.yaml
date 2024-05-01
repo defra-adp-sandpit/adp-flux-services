@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 - ../../base
 - ../../test-ingress
+- ../../ffc-frontend-1
+- ../../ffc-backend-1
