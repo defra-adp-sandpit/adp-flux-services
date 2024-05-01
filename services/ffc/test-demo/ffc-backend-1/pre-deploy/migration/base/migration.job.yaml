@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ffc-backend-1-dbmigration
+  namespace: test-demo
+  labels:
+    azure.workload.identity/use: "true"
+    backstage.io/kubernetes-id: ffc-backend-1
+    backstage.io/kubernetes-team: test-demo
+spec:
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        backstage.io/kubernetes-id: ffc-backend-1
+        backstage.io/kubernetes-team: test-demo
+    spec:
+      serviceAccountName: ${TEAM_NAMESPACE}
+      restartPolicy: Never
+      containers:
+      - name: ffc-backend-1-dbmigration
+        imagePullPolicy: Always
+  backoffLimit: "2"

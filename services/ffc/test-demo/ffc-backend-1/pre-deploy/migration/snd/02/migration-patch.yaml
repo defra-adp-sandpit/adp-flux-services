@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ffc-backend-1-dbmigration
+  namespace: test-demo
+spec:
+  template:
+    spec:
+      containers:
+      - name: ffc-backend-1-dbmigration
+        image: ssvadpinfcr3401.azurecr.io/image/ffc-backend-1-dbmigration:0.1.0 # {"$imagepolicy": "flux-config:ffc-backend-1-dbmigration-snd-02"}
+        env:
+        - name: POSTGRES_HOST
+          value: ${SHARED_POSTGRES_SERVER_01}.postgres.database.azure.com
+        - name: SCHEMA_NAME
+          value: ${POSTGRES_SCHEMA_NAME}
+        - name: POSTGRES_DB
+          value: ${POSTGRES_DB}
+        - name: POSTGRES_PORT
+          value: ${POSTGRES_PORT}
+        - name: SCHEMA_USERNAME
+          value: AAG-Azure-ADP-test-demo-snd2-PostgresDB_Writer
