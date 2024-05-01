@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-frontend-1-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-frontend-1
+    backstage.io/kubernetes-team: test-demo
+spec:
+  releaseName: ffc-frontend-1-infra
+  chart:
+    spec:
+      chart: ffc-frontend-1-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: test-demo-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: "true"
+  interval: 5m0s
+  targetNamespace: test-demo
+  values:
+    namespace: test-demo
