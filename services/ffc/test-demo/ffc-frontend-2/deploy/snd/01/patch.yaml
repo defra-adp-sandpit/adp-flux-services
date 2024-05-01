@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-frontend-2
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:ffc-frontend-2-snd-01:tag"}
+  values:
+    environment: production
+    name: ffc-frontend-2
+    namespace: test-demo
+    image: sndadpinfcr1401.azurecr.io/image/ffc-frontend-2:0.1.0 # {"$imagepolicy": "flux-config:ffc-frontend-2-snd-01"}
+    serviceAccount:
+      name: ffc-frontend-2
+    labels:
+      component: web
+    container:
+      imagePullPolicy: Always
+    ingress:
+      class: nginx
+      endpoint: __INGRESS_ENDPOINT__
+      server: snd1.adp.defra.gov.uk
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
