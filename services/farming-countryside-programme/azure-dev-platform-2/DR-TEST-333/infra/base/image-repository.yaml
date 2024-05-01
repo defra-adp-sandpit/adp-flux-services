@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: DR-TEST-333
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: DR-TEST-333
+    backstage.io/kubernetes-team: azure-dev-platform-2
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/DR-TEST-333
+  interval: 5m0s
+  provider: azure
