@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-helm-only-7
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:test-helm-only-7-snd-03:tag"}
+  values:
+    environment: production
+    name: test-helm-only-7
+    namespace: ffc-demo10
+    image: sndadpinfcr3401.azurecr.io/image/test-helm-only-7:0.1.0 # {"$imagepolicy": "flux-config:test-helm-only-7-snd-03"}
+    serviceAccount:
+      name: test-helm-only-7
+    labels:
+      component: web
+    container:
+      imagePullPolicy: Always
+    ingress:
+      class: nginx
+      endpoint: helm-7-endpoint/home7
+      server: snd3.adp.defra.gov.uk
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
