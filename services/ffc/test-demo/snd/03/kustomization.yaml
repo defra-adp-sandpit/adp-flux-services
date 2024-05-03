@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+- ../../test-ingress
+- ../../ffc-frontend-1
+- ../../ffc-backend-1
+- ../../test-ingress-1
+- ../../test-ingress-2
+- ../../test-ingress-3
+- ../../ffc-frontend-2
+- ../../ffc-backend-2
+- ../../test-ingress-4
+- ../../ffc-frontend-3
