@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: __SERVICE_NAME__-dbmigration
+  namespace: pp-demo
+  labels:
+    azure.workload.identity/use: "true"
+    backstage.io/kubernetes-id: __SERVICE_NAME__
+    backstage.io/kubernetes-team: pp-demo
+spec:
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        backstage.io/kubernetes-id: __SERVICE_NAME__
+        backstage.io/kubernetes-team: pp-demo
+    spec:
+      serviceAccountName: ${TEAM_NAMESPACE}
+      restartPolicy: Never
+      containers:
+      - name: __SERVICE_NAME__-dbmigration
+        imagePullPolicy: Always
+  backoffLimit: 2

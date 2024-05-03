@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: __SERVICE_NAME__
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: __SERVICE_NAME__
+    backstage.io/kubernetes-team: pp-demo
+spec:
+  releaseName: __SERVICE_NAME__
+  chart:
+    spec:
+      chart: __SERVICE_NAME__
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: pp-demo-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: pp-demo

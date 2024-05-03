@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: __SERVICE_NAME__-post-dbmigration
+  namespace: pp-demo
+spec:
+  template:
+    spec:
+      containers:
+      - name: __SERVICE_NAME__-post-dbmigration
+        image: "424529"
+        env:
+        - name: GIT_REPO_URL
+          value: https://github.com/DEFRA/adp-flux-services.git
+        - name: GIT_BRANCH
+          value: main
+        - name: SCRIPT_FILE_NAME
+          value: common/scripts/access-control/flexible-server/Grant-FlexibleServerDBAccess.ps1
+        - name: POSTGRES_HOST
+          value: ${SHARED_POSTGRES_SERVER_01}.postgres.database.azure.com
+        - name: POSTGRES_DATABASE
+          value: ${POSTGRES_DB}
+        - name: SERVICE_MI_NAME
+          value: ${TEAM_MI_PREFIX}-${SERVICE_NAME}
+        - name: TEAM_MI_SUBSCRIPTION_ID
+          value: ${SUBSCRIPTION_ID}
+        - name: SUBSCRIPTION_NAME
+          value: ${SUBSCRIPTION_NAME}
+        - name: PG_WRITER_AD_GROUP
+          value: AAG-Azure-ADP-pp-__ENVIRONMENT____ENV_INSTANCE__-PostgresDB_Writer
+        - name: PG_READER_AD_GROUP
+          value: AAG-Azure-ADP-pp-__ENVIRONMENT____ENV_INSTANCE__-PostgresDB_Reader
+        - name: DB_MIGRATION_VERSION
+          value: __MIGRATION_VERSION_TAG__
