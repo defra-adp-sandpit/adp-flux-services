@@ -1,13 +1,15 @@
 content:
   apiVersion: image.toolkit.fluxcd.io/v1beta2
-  kind: ImageRepository
+  kind: ImagePolicy
   metadata:
-    name: ffc-demo-web
+    name: ffc-demo-web-snd-03
     namespace: flux-config
     labels:
       backstage.io/kubernetes-id: ffc-demo-web
       backstage.io/kubernetes-team: ffc-demo
   spec:
-    image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo-web
-    interval: 5m0s
-    provider: azure
+    imageRepositoryRef:
+      name: ffc-demo-web
+    policy:
+      semver:
+        range: '>=0.1.0'
