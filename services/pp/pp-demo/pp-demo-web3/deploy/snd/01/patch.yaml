@@ -14,14 +14,8 @@ spec:
     image: sndadpinfcr1401.azurecr.io/image/pp-demo-web3:0.1.0 # {"$imagepolicy": "flux-config:pp-demo-web3-snd-01"}
     serviceAccount:
       name: pp-demo-web3
-    labels:
-      component: web
     container:
       imagePullPolicy: Always
-    ingress:
-      class: nginx
-      endpoint: __INGRESS_ENDPOINT__
-      server: snd1.adp.defra.gov.uk
     deployment:
       priorityClassName: default
     containerConfigMap:
