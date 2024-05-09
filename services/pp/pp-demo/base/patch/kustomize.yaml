@@ -12,7 +12,7 @@ spec:
     namespace: flux-config
   interval: 5m
   timeout: 3m
-  prune: true
+  prune: "true"
   path: ./services/pp/pp-demo/${ENVIRONMENT}/${ENVIRONMENT_ID}
   postBuild:
     substitute:
@@ -29,6 +29,6 @@ spec:
     substituteFrom:
     - kind: ConfigMap
       name: pp-demo-mi-credential
-      optional: true
+      optional: "true"
     - kind: ConfigMap
       name: adp-platform-vars
