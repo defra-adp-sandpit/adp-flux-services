@@ -4,14 +4,14 @@ metadata:
   name: pp-demo-service-post-dbmigration
   namespace: pp-demo
   labels:
-    azure.workload.identity/use: true|quoted
+    azure.workload.identity/use: trueString
     backstage.io/kubernetes-id: pp-demo-service
     backstage.io/kubernetes-team: pp-demo
 spec:
   template:
     metadata:
       labels:
-        azure.workload.identity/use: true|quoted
+        azure.workload.identity/use: trueString
         backstage.io/kubernetes-id: pp-demo-service
         backstage.io/kubernetes-team: pp-demo
     spec:
