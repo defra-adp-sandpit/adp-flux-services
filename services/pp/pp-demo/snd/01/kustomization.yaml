@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - ../../base
 - ../../pp-demo-web
-- ../../aj-demo-web
+- ../../pp-demo-web3
 - ../../pp-demo-service
