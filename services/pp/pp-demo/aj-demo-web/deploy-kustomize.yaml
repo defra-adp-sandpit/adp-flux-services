@@ -17,9 +17,9 @@ spec:
   path: ./services/pp/pp-demo/aj-demo-web/deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
   interval: 5m
   timeout: 3m
-  prune: "true"
-  wait: "true"
-  force: "true"
+  prune: true
+  wait: true
+  force: true
   postBuild:
     substitute:
       SERVICE_NAME: aj-demo-web
