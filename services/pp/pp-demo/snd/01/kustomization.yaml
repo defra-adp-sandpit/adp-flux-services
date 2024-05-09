@@ -4,3 +4,4 @@ resources:
 - ../../base
 - ../../pp-demo-web
 - ../../pp-demo-web3
+- ../../pp-demo-service
