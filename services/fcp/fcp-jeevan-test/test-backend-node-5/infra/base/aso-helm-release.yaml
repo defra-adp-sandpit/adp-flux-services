@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-backend-node-5-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-backend-node-5
+    backstage.io/kubernetes-team: fcp-jeevan-test
+spec:
+  releaseName: test-backend-node-5-infra
+  chart:
+    spec:
+      chart: test-backend-node-5-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-jeevan-test-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-jeevan-test
+  values:
+    namespace: fcp-jeevan-test
