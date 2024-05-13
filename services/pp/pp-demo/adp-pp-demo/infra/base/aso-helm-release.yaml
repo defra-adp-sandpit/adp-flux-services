@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: adp-pp-demo-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: adp-pp-demo
+    backstage.io/kubernetes-team: pp-demo
+spec:
+  releaseName: adp-pp-demo-infra
+  chart:
+    spec:
+      chart: adp-pp-demo-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: pp-demo-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: pp-demo
+  values:
+    namespace: pp-demo
