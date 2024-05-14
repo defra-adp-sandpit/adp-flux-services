@@ -11,7 +11,7 @@ spec:
         image: ssvadpinfcr3401.azurecr.io/image/powershell-executor:1 # {"$imagepolicy": "flux-config:powershell-executor-snd-01"}
         env:
         - name: GIT_REPO_URL
-          value: https://github.com/DEFRA/adp-flux-services.git
+          value: https://github.com/defra-adp-sandpit/adp-flux-services.git
         - name: GIT_BRANCH
           value: main
         - name: SCRIPT_FILE_NAME
