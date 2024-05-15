@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-team-sync-4
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-team-sync-4
+    backstage.io/kubernetes-team: crai-james-test-project
+spec:
+  releaseName: test-team-sync-4
+  chart:
+    spec:
+      chart: test-team-sync-4
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: crai-james-test-project-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: crai-james-test-project

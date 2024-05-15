@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: test-team-sync-4-snd-03
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-team-sync-4
+    backstage.io/kubernetes-team: crai-james-test-project
+spec:
+  imageRepositoryRef:
+    name: test-team-sync-4
+  policy:
+    semver:
+      range: '>=0.1.0'
