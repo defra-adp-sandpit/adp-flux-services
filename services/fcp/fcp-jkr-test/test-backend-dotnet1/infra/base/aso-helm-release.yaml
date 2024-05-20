@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-backend-dotnet1-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-backend-dotnet1
+    backstage.io/kubernetes-team: fcp-jkr-test
+spec:
+  releaseName: test-backend-dotnet1-infra
+  chart:
+    spec:
+      chart: test-backend-dotnet1-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-jkr-test-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-jkr-test
+  values:
+    namespace: fcp-jkr-test
