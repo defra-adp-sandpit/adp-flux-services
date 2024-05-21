@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: jc-test-frontend-20240521-2-snd-03
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: jc-test-frontend-20240521-2
+    backstage.io/kubernetes-team: crai-james-test-project
+spec:
+  imageRepositoryRef:
+    name: jc-test-frontend-20240521-2
+  policy:
+    semver:
+      range: '>=0.1.0'

@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jc-test-frontend-20240521-2
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: jc-test-frontend-20240521-2
+    backstage.io/kubernetes-team: crai-james-test-project
+spec:
+  releaseName: jc-test-frontend-20240521-2
+  chart:
+    spec:
+      chart: jc-test-frontend-20240521-2
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: crai-james-test-project-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: crai-james-test-project

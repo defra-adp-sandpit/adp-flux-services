@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - image-update.yaml
 - ../../../ffc/ffc-demo/base/patch
+- ../../../crai/crai-james-test-project/base/patch
