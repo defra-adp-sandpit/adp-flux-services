@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: test-dotnet-topic-ai
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-dotnet-topic-ai
+    backstage.io/kubernetes-team: fcp-jkr-test
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/test-dotnet-topic-ai
+  interval: 5m0s
+  provider: azure
