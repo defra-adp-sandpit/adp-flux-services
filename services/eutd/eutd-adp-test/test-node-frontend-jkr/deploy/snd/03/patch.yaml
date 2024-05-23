@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-node-frontend-jkr
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:test-node-frontend-jkr-snd-03:tag"}
+  values:
+    environment: production
+    name: test-node-frontend-jkr
+    namespace: eutd-adp-test
+    image: sndadpinfcr3401.azurecr.io/image/test-node-frontend-jkr:0.1.0 # {"$imagepolicy": "flux-config:test-node-frontend-jkr-snd-03"}
+    serviceAccount:
+      name: test-node-frontend-jkr
+    labels:
+      component: web
+    container:
+      imagePullPolicy: Always
+    ingress:
+      class: nginx
+      endpoint: test-node-frontend-jkr
+      server: snd3.adp.defra.gov.uk
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}

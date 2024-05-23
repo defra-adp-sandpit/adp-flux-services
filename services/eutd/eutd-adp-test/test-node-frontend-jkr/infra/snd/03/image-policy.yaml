@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: test-node-frontend-jkr-snd-03
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-node-frontend-jkr
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  imageRepositoryRef:
+    name: test-node-frontend-jkr
+  policy:
+    semver:
+      range: '>=0.1.0'
