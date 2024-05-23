@@ -6,12 +6,12 @@ metadata:
 spec:
   chart:
     spec:
-      version: 1.25-alpha.566489 # {"$imagepolicy": "flux-config:coreai-mcu-frontend-snd-01:tag"}
+      version: 0.1.25-alpha.566489 # {"$imagepolicy": "flux-config:coreai-mcu-frontend-snd-01:tag"}
   values:
     environment: production
     name: coreai-mcu-frontend
     namespace: crai-mcu
-    image: sndadpinfcr1401.azurecr.io/image/coreai-mcu-frontend:1.25-alpha.566489 # {"$imagepolicy": "flux-config:coreai-mcu-frontend-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/coreai-mcu-frontend:0.1.25-alpha.566489 # {"$imagepolicy": "flux-config:coreai-mcu-frontend-snd-01"}
     serviceAccount:
       name: coreai-mcu-frontend
     labels:
