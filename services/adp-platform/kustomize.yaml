@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: flux-config
+  name: adp-platform-base
   namespace: flux-config
 spec:
   sourceRef:
@@ -11,12 +11,13 @@ spec:
   interval: 5m
   timeout: 3m
   prune: true
-  path: ./services/environments/snd/02
+  path: ./services/adp-platform
   postBuild:
+    substitute:
+      TEAM_NAME: "adp-platform-team"
+      TEAM_NAMESPACE: "adp-platform"
+      TEAM_RG: "${DATABASE_SERVER_RG}"
+      PLATFORM_DB_ADMIN: "adp-platform-db-aad-admin"
     substituteFrom:
       - kind: ConfigMap
         name: adp-platform-vars
-    substitute:
-      APPCONFIG_MI_CLIENTID: ${APPCONFIG_MI_CLIENTID}
-      APPCONFIG_NAME: ${APPCONFIG_NAME}
-
