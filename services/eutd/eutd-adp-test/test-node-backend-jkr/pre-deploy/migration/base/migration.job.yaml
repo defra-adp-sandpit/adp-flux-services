@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-node-backend-jkr-dbmigration
+  namespace: eutd-adp-test
+  labels:
+    azure.workload.identity/use: "true"
+    backstage.io/kubernetes-id: test-node-backend-jkr
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        backstage.io/kubernetes-id: test-node-backend-jkr
+        backstage.io/kubernetes-team: eutd-adp-test
+    spec:
+      serviceAccountName: ${TEAM_NAMESPACE}
+      restartPolicy: Never
+      containers:
+      - name: test-node-backend-jkr-dbmigration
+        imagePullPolicy: Always
+  backoffLimit: 2

@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-node-backend-jkr-pre-dbmigration
+  namespace: flux-config
+  labels:
+    azure.workload.identity/use: "true"
+    backstage.io/kubernetes-id: test-node-backend-jkr
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        backstage.io/kubernetes-id: test-node-backend-jkr
+        backstage.io/kubernetes-team: eutd-adp-test
+    spec:
+      serviceAccountName: ${PLATFORM_DB_ADMIN}
+      restartPolicy: Never
+      volumes:
+      - name: custom-root-ca
+        secret:
+          secretName: custom-ca-trust-secret
+          optional: true
+      containers:
+      - name: test-node-backend-jkr-pre-dbmigration
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: custom-root-ca
+          readOnly: true
+          mountPath: /etc/ssl/certs/defra-egress-firewall-cert-01.crt
+          subPath: defra-egress-firewall-cert-01.crt
+  backoffLimit: 2
