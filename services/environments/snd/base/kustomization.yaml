@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 - image-update.yaml
 - notification.yaml
-- ../../../ffc/ffc-demo/base/patch
+# - ../../../ffc/ffc-demo/base/patch
 - ../../../crai/crai-mcu/base/patch
 - ../../../fcp/fcp-demo/base/patch
