@@ -5,3 +5,4 @@ resources:
 - notification.yaml
 - ../../../ffc/ffc-demo/base/patch
 - ../../../crai/crai-mcu/base/patch
+- ../../../fcp/fcp-demo/base/patch
