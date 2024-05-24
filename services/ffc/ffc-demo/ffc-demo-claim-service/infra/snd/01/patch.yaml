@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: ffc-demo-claim-service-infra
-      version: "5.1.41-alpha.557215" # {"$imagepolicy": "flux-config:ffc-demo-claim-service-snd-01:tag"}
+      version: 0.1.0 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-snd-01:tag"}
   values:
     namespace: ${TEAM_NAMESPACE}
     fluxConfigNamespace: ${FLUX_CONFIG_NAMESPACE}
@@ -33,15 +33,15 @@ spec:
     storageAccountPrefix: ${STORAGEACCOUNT_PREFIX}
     userAssignedIdentity:
       federatedCreds:
-        - namespace: ${TEAM_NAMESPACE}
-          serviceAccountName: ${SERVICE_NAME}
-        - namespace: 'app-config-service'
-          serviceAccountName: 'az-appconfig-k8s-provider'
+      - namespace: ${TEAM_NAMESPACE}
+        serviceAccountName: ${SERVICE_NAME}
+      - namespace: app-config-service
+        serviceAccountName: az-appconfig-k8s-provider
     commonTags:
       environment: ${ENVIRONMENT}
       serviceCode: ${SERVICE_CODE}
       serviceName: ${SERVICE_NAME}
-      serviceType: "Dedicated"
+      serviceType: Dedicated
       kubernetes_cluster: ${CLUSTER_NAME}
       kubernetes_namespace: ${TEAM_NAMESPACE}
       kubernetes_label_serviceCode: ${SERVICE_CODE}
