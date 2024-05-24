@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: test-svc-1-dbmigration
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-svc-1
+    backstage.io/kubernetes-team: fcp-jkr-test
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/test-svc-1-dbmigration
+  interval: 5m0s
+  provider: azure

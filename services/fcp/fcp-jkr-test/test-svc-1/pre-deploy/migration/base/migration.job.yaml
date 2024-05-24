@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-svc-1-dbmigration
+  namespace: fcp-jkr-test
+  labels:
+    azure.workload.identity/use: "true"
+    backstage.io/kubernetes-id: test-svc-1
+    backstage.io/kubernetes-team: fcp-jkr-test
+spec:
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        backstage.io/kubernetes-id: test-svc-1
+        backstage.io/kubernetes-team: fcp-jkr-test
+    spec:
+      serviceAccountName: ${TEAM_NAMESPACE}
+      restartPolicy: Never
+      containers:
+      - name: test-svc-1-dbmigration
+        imagePullPolicy: Always
+  backoffLimit: 2

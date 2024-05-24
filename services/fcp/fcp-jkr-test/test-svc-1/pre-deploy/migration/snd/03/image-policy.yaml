@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: test-svc-1-dbmigration-snd-03
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-svc-1
+    backstage.io/kubernetes-team: fcp-jkr-test
+spec:
+  imageRepositoryRef:
+    name: test-svc-1-dbmigration
+  policy:
+    semver:
+      range: '>=0.1.0'

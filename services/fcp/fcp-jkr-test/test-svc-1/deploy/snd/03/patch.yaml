@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-svc-1
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:test-svc-1-snd-03:tag"}
+  values:
+    environment: production
+    name: test-svc-1
+    namespace: fcp-jkr-test
+    image: sndadpinfcr3401.azurecr.io/image/test-svc-1:0.1.0 # {"$imagepolicy": "flux-config:test-svc-1-snd-03"}
+    serviceAccount:
+      name: test-svc-1
+    container:
+      imagePullPolicy: Always
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
