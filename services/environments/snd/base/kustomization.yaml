@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - image-update.yaml
 - notification.yaml
-- ../../../crai/crai-mcu/base/patch
 - ../../../fcp/fcp-demo/base/patch
