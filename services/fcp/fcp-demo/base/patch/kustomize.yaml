@@ -23,9 +23,11 @@ spec:
       APPCONFIG_NAME: ${APPCONFIG_NAME}
       SERVICE_CODE: fcp-demo
       PLATFORM_DB_ADMIN: adp-platform-db-aad-admin
-      TEAM_CPU_QUOTA: "5000"
-      TEAM_MEMORY_QUOTA: 5000Mi
+      TEAM_CPU_QUOTA: "2000"
+      TEAM_MEMORY_QUOTA: 3000Mi
       TEAM_PODS_QUOTA: "20"
+      CONTAINER_MAX_CPU: __CONTAINER_MAX_CPU__
+      CONTAINER_MAX_MEMORY: __CONTAINER_MAX_MEMORY__
     substituteFrom:
     - kind: ConfigMap
       name: fcp-demo-mi-credential
