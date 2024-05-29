@@ -26,8 +26,6 @@ spec:
       TEAM_CPU_QUOTA: "2000"
       TEAM_MEMORY_QUOTA: 3000Mi
       TEAM_PODS_QUOTA: "20"
-      CONTAINER_MAX_CPU: 600m
-      CONTAINER_MAX_MEMORY: __CONTAINER_MAX_MEMORY__
     substituteFrom:
     - kind: ConfigMap
       name: fcp-demo-mi-credential
