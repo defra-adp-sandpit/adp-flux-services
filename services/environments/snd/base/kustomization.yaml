@@ -4,3 +4,4 @@ resources:
 - image-update.yaml
 - notification.yaml
 - ../../../fcp/fcp-demo/base/patch
+- ../../../adp-platform/kustomize.yaml
