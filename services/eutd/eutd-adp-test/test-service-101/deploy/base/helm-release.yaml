@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-service-101
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: test-service-101
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  releaseName: test-service-101
+  chart:
+    spec:
+      chart: test-service-101
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: eutd-adp-test-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: eutd-adp-test
