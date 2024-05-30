@@ -5,3 +5,4 @@ resources:
 - notification.yaml
 - ../../../fcp/fcp-demo/base/patch
 - ../../../adp-platform/kustomize.yaml
+- ../../../fcp/fcp-gg-test/base/patch
