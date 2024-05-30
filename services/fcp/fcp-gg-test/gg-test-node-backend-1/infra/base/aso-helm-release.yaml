@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: gg-test-node-backend-1-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: gg-test-node-backend-1
+    backstage.io/kubernetes-team: fcp-gg-test
+spec:
+  releaseName: gg-test-node-backend-1-infra
+  chart:
+    spec:
+      chart: gg-test-node-backend-1-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-gg-test-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-gg-test
+  values:
+    namespace: fcp-gg-test
