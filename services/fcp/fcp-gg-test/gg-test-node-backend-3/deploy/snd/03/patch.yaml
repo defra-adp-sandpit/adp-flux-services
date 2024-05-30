@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: gg-test-node-backend-3
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:gg-test-node-backend-3-snd-03:tag"}
+  values:
+    environment: production
+    name: gg-test-node-backend-3
+    namespace: fcp-gg-test
+    image: sndadpinfcr3401.azurecr.io/image/gg-test-node-backend-3:0.1.0 # {"$imagepolicy": "flux-config:gg-test-node-backend-3-snd-03"}
+    serviceAccount:
+      name: gg-test-node-backend-3
+    container:
+      imagePullPolicy: Always
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
