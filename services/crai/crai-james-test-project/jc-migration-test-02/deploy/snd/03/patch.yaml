@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jc-migration-test-02
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:jc-migration-test-02-snd-03:tag"}
+  values:
+    environment: production
+    name: jc-migration-test-02
+    namespace: crai-james-test-project
+    image: sndadpinfcr3401.azurecr.io/image/jc-migration-test-02:0.1.0 # {"$imagepolicy": "flux-config:jc-migration-test-02-snd-03"}
+    serviceAccount:
+      name: jc-migration-test-02
+    container:
+      imagePullPolicy: Always
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
