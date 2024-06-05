@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jc-migration-test-02-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: jc-migration-test-02
+    backstage.io/kubernetes-team: crai-james-test-project
+spec:
+  releaseName: jc-migration-test-02-infra
+  chart:
+    spec:
+      chart: jc-migration-test-02-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: crai-james-test-project-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: crai-james-test-project
+  values:
+    namespace: crai-james-test-project
