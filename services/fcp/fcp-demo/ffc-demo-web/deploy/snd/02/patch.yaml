@@ -11,6 +11,7 @@ spec:
     environment: production
     name: ffc-demo-web
     namespace: fcp-demo
+    teamResourceGroupName: ${TEAM_RG}
     image: sndadpinfcr2401.azurecr.io/image/ffc-demo-web:0.1.0 # {"$imagepolicy": "flux-config:ffc-demo-web-snd-02"}
     serviceAccount:
       name: ffc-demo-web
@@ -28,3 +29,5 @@ spec:
       configServiceName: ${APPCONFIG_NAME}
       configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
       serviceMIClientId: ${clientId}
+    storageAccountPrefix: ${STORAGEACCOUNT_PREFIX}
+    enablePrivateEndpoint: ${ENABLE_PRIVATE_ENDPOINT}
