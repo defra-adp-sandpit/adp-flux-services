@@ -5,3 +5,4 @@ resources:
 - notification.yaml
 - ../../../fcp/fcp-demo/base/patch
 - ../../../adp-platform/kustomize.yaml
+- ../../../ncea/ncea-search/base/patch
