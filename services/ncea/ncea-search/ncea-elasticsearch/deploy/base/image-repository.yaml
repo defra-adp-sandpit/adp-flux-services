@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-id: ncea-elasticsearch
     backstage.io/kubernetes-team: ncea-search
 spec:
-  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ncea-elasticsearch
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/helm/ncea-elasticsearch
   interval: 5m0s
   provider: azure
