@@ -7,3 +7,4 @@ resources:
 - ../../../adp-platform/kustomize.yaml
 - ../../../ncea/ncea-search/base/patch
 - ../../../ffc/ffc-demo/base/patch
+- ../../../eutd/eutd-adp-test/base/patch
