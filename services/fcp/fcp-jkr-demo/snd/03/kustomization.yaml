@@ -4,3 +4,4 @@ resources:
 - ../../base
 - ../../fcp-jkr-demo-backend-node
 - ../../fcp-jkr-demo-backend-node-1
+- ../../ncea-kibana-1

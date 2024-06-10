@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: ncea-kibana-1
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ncea-kibana-1
+    backstage.io/kubernetes-team: fcp-jkr-demo
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/helm/ncea-kibana-1
+  interval: 5m0s
+  provider: azure
