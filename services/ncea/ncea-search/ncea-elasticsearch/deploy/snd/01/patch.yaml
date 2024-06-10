@@ -12,7 +12,6 @@ spec:
     name: ncea-elasticsearch
     namespace: ncea-search
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/ncea-elasticsearch:0.1.0 # {"$imagepolicy": "flux-config:ncea-elasticsearch-snd-01"}
     serviceAccount:
       name: ncea-elasticsearch
     labels:
