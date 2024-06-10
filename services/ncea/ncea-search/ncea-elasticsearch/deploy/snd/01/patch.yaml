@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.0 # {"$imagepolicy": "flux-config:ncea-elasticsearch-snd-01:tag"}
+      version: 8.5.2-alpha.581732 # {"$imagepolicy": "flux-config:ncea-elasticsearch-snd-01:tag"}
   values:
     environment: production
     name: ncea-elasticsearch
