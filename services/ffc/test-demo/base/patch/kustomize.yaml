@@ -1,0 +1,34 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: test-demo-base
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-team: test-demo
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: services-repository
+    namespace: flux-config
+  interval: 5m
+  timeout: 3m
+  prune: true
+  path: ./services/ffc/test-demo/${ENVIRONMENT}/${ENVIRONMENT_ID}
+  postBuild:
+    substitute:
+      TEAM_NAMESPACE: test-demo
+      TEAM_NAME: test-demo-team
+      TEAM_RG: ${SERVICES_INFRA_RG}-test-demo
+      APPCONFIG_MI_CLIENTID: ${APPCONFIG_MI_CLIENTID}
+      APPCONFIG_NAME: ${APPCONFIG_NAME}
+      SERVICE_CODE: test-demo
+      PLATFORM_DB_ADMIN: adp-platform-db-aad-admin
+      TEAM_CPU_QUOTA: "2000"
+      TEAM_MEMORY_QUOTA: 3000Mi
+      TEAM_PODS_QUOTA: "20"
+    substituteFrom:
+    - kind: ConfigMap
+      name: test-demo-mi-credential
+      optional: true
+    - kind: ConfigMap
+      name: adp-platform-vars
