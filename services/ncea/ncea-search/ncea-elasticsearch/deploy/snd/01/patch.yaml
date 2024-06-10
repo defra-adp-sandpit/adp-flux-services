@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 8.5.2-alpha.581475 # {"$imagepolicy": "flux-config:ncea-elasticsearch-snd-01:tag"}
+      version: 0.1.0 # {"$imagepolicy": "flux-config:ncea-elasticsearch-snd-01:tag"}
   values:
     environment: production
     name: ncea-elasticsearch
@@ -20,7 +20,7 @@ spec:
       imagePullPolicy: Always
     ingress:
       class: nginx
-      endpoint: __INGRESS_ENDPOINT__
+      endpoint: ncea-elasticsearch/
       server: snd1.adp.defra.gov.uk
     deployment:
       priorityClassName: default
