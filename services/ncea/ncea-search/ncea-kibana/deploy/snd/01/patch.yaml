@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 8.5.1-alpha.581988 # {"$imagepolicy": "flux-config:ncea-kibana-snd-01:tag"}
+      version: 0.1.0 # {"$imagepolicy": "flux-config:ncea-kibana-snd-01:tag"}
   values:
     environment: production
     name: ncea-kibana
