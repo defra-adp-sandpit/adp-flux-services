@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: fcp-jkr-demo-backend-node-1-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: fcp-jkr-demo-backend-node-1
+    backstage.io/kubernetes-team: fcp-jkr-demo
+spec:
+  releaseName: fcp-jkr-demo-backend-node-1-infra
+  chart:
+    spec:
+      chart: fcp-jkr-demo-backend-node-1-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-jkr-demo-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-jkr-demo
+  values:
+    namespace: fcp-jkr-demo
