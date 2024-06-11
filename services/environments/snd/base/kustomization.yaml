@@ -9,3 +9,4 @@ resources:
 - ../../../ffc/ffc-demo/base/patch
 - ../../../eutd/eutd-adp-test/base/patch
 - ../../../fcp/fcp-jkr-demo/base/patch
+- ../../../pp/pp-demo/base/patch

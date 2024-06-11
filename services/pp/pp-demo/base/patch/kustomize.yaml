@@ -26,6 +26,8 @@ spec:
       TEAM_CPU_QUOTA: __TEAM_CPU_QUOTA__
       TEAM_MEMORY_QUOTA: __TEAM_MEMORY_QUOTA__
       TEAM_PODS_QUOTA: __TEAM_PODS_QUOTA__
+      CONTAINER_MAX_CPU: __CONTAINER_MAX_CPU__
+      CONTAINER_MAX_MEMORY: __CONTAINER_MAX_MEMORY__
     substituteFrom:
     - kind: ConfigMap
       name: pp-demo-mi-credential
