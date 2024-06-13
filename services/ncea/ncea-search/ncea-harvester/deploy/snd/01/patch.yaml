@@ -6,13 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.0 # {"$imagepolicy": "flux-config:ncea-harvester-snd-01:tag"}
+      version: 0.1.1-alpha.584694 # {"$imagepolicy": "flux-config:ncea-harvester-snd-01:tag"}
   values:
     environment: production
     name: ncea-harvester
     namespace: ncea-search
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/ncea-harvester:0.1.0 # {"$imagepolicy": "flux-config:ncea-harvester-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/ncea-harvester:0.1.1-alpha.584694 # {"$imagepolicy": "flux-config:ncea-harvester-snd-01"}
     serviceAccount:
       name: ncea-harvester
     container:
