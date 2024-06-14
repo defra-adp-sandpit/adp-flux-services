@@ -24,7 +24,4 @@ spec:
           requests:
             cpu: 100m
             memory: 250Mi
-          limits:
-            cpu: 500m
-            memory: 600Mi
   backoffLimit: 2
