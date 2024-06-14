@@ -22,7 +22,7 @@ metadata:
 spec:
   limits:
     - default:
-        cpu: 50m
+        cpu: 500m
       defaultRequest:
         cpu: 50m
       max:
