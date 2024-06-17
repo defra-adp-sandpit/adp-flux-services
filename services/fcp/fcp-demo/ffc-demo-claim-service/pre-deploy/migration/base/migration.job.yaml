@@ -20,11 +20,11 @@ spec:
       containers:
       - name: ffc-demo-claim-service-dbmigration
         imagePullPolicy: Always
-        # resources:
+        resources:
         #   requests:
         #     cpu: 100m
         #     memory: 250Mi
-        #   limits:
-        #     cpu: 500m
-        #     memory: 600Mi
+          limits:
+            cpu: 100m
+            memory: 500Mi
   backoffLimit: 2
