@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: frontend-manual-testing-internal-ui
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: frontend-manual-testing-internal-ui
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  releaseName: frontend-manual-testing-internal-ui
+  chart:
+    spec:
+      chart: frontend-manual-testing-internal-ui
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: eutd-adp-test-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: eutd-adp-test

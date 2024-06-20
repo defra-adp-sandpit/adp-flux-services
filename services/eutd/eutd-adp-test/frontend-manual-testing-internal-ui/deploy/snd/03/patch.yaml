@@ -1,0 +1,33 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: frontend-manual-testing-internal-ui
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:frontend-manual-testing-internal-ui-snd-03:tag"}
+  values:
+    environment: production
+    name: frontend-manual-testing-internal-ui
+    namespace: eutd-adp-test
+    teamResourceGroupName: ${TEAM_RG}
+    image: sndadpinfcr3401.azurecr.io/image/frontend-manual-testing-internal-ui:0.1.0 # {"$imagepolicy": "flux-config:frontend-manual-testing-internal-ui-snd-03"}
+    serviceAccount:
+      name: frontend-manual-testing-internal-ui
+    labels:
+      component: web
+    container:
+      imagePullPolicy: Always
+    ingress:
+      class: nginx
+      endpoint: frontend-manual-testing-internal-ui
+      server: snd3.adp.defra.gov.uk
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
+    storageAccountPrefix: ${STORAGEACCOUNT_PREFIX}
+    enablePrivateEndpoint: ${ENABLE_PRIVATE_ENDPOINT}

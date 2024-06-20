@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: frontend-manual-testing-internal-ui
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: frontend-manual-testing-internal-ui
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/frontend-manual-testing-internal-ui
+  interval: 5m0s
+  provider: azure

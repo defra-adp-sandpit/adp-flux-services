@@ -5,3 +5,4 @@ resources:
 - ../../fcp-jkr-demo-backend-1
 - ../../adp-dotnet-test-roz
 - ../../frontend-manual-testing-external-ui
+- ../../frontend-manual-testing-internal-ui
