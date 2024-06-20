@@ -2,5 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../base
-- ../../fcp-jkr-demo-backend-1
-- ../../adp-dotnet-test-roz
+patches:
+- path: patch.yaml
