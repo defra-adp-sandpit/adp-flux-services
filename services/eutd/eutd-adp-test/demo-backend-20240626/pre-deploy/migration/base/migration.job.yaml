@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demo-backend-20240626-dbmigration
+  namespace: eutd-adp-test
+  labels:
+    azure.workload.identity/use: "true"
+    backstage.io/kubernetes-id: demo-backend-20240626
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        backstage.io/kubernetes-id: demo-backend-20240626
+        backstage.io/kubernetes-team: eutd-adp-test
+    spec:
+      serviceAccountName: ${TEAM_NAMESPACE}
+      restartPolicy: Never
+      containers:
+      - name: demo-backend-20240626-dbmigration
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 500m
+            memory: 600Mi
+  backoffLimit: 2

@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: demo-backend-20240626
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: demo-backend-20240626
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  releaseName: demo-backend-20240626
+  chart:
+    spec:
+      chart: demo-backend-20240626
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: eutd-adp-test-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: eutd-adp-test

@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: demo-backend-20240626
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: demo-backend-20240626
+    backstage.io/kubernetes-team: eutd-adp-test
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/demo-backend-20240626
+  interval: 5m0s
+  provider: azure
