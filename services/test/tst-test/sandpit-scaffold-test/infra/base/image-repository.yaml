@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: sandpit-scaffold-test
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: sandpit-scaffold-test
+    backstage.io/kubernetes-team: tst-test
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/sandpit-scaffold-test
+  interval: 5m0s
+  provider: azure
