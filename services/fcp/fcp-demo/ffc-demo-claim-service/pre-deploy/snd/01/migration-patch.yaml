@@ -13,7 +13,7 @@ spec:
         - name: POSTGRES_HOST
           value: ${SHARED_POSTGRES_SERVER_01}.postgres.database.azure.com
         - name: POSTGRES_PORT
-          value: '${POSTGRES_PORT}'
+          value: ${POSTGRES_PORT}
         - name: SCHEMA_NAME
           value: ${POSTGRES_SCHEMA_NAME}
         - name: POSTGRES_DB_NAME
