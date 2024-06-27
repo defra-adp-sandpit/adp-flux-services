@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ffc-demo-claim-service-dbmigration
+  namespace: fcp-demo
+spec:
+  template:
+    spec:
+      containers:
+      - name: ffc-demo-claim-service-dbmigration
+        image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service-dbmigration:5.1.35 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-dbmigration-snd-01"}
+        env:
+        - name: POSTGRES_HOST
+          value: ${SHARED_POSTGRES_SERVER_01}.postgres.database.azure.com
+        - name: POSTGRES_PORT
+          value: ${POSTGRES_PORT}
+        - name: SCHEMA_NAME
+          value: ${POSTGRES_SCHEMA_NAME}
+        - name: POSTGRES_DB_NAME
+          value: ${POSTGRES_DB}
+        - name: POSTGRES_DB_USERNAME
+          value: AAG-Azure-ADP-fcp-demo-snd1-PostgresDB_Writer
+        - name: SERVICE_MI_NAME
+          value: ${TEAM_MI_PREFIX}-${SERVICE_NAME}
+        - name: TEAM_MI_NAME
+          value: ${TEAM_MI_PREFIX}-${TEAM_NAMESPACE}          
+        - name: PLATFORM_MI_NAME
+          value: ${TEAM_MI_PREFIX}-${PLATFORM_DB_ADMIN}    
+        - name: DB_AAD_ADMIN_CLIENT_ID
+          value: "25891516-da6f-40f0-9e8d-3f934d59bdd6"
+        - name: TEAM_MI_CLIENT_ID
+          value: "78db6f81-685c-45e3-af6f-3a333170a98b"            
+        - name: SSV_SHARED_SUBSCRIPTION_ID
+          value: ${SSV_SHARED_SUBSCRIPTION_ID}      
+
