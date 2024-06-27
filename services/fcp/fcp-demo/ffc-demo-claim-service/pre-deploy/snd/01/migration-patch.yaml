@@ -27,9 +27,16 @@ spec:
         - name: PLATFORM_MI_NAME
           value: ${TEAM_MI_PREFIX}-${PLATFORM_DB_ADMIN}    
         - name: DB_AAD_ADMIN_CLIENT_ID
-          value: "25891516-da6f-40f0-9e8d-3f934d59bdd6"
+          value: "${DB_AAD_ADMIN_CLIENT_ID}"
         - name: TEAM_MI_CLIENT_ID
-          value: "78db6f81-685c-45e3-af6f-3a333170a98b"            
+          value: ${clientId}         
         - name: SSV_SHARED_SUBSCRIPTION_ID
           value: ${SSV_SHARED_SUBSCRIPTION_ID}      
+        - name: KEY_VAULT_NAME
+          value: ${SSV_PLATFORM_KEYVAULT}
+        - name: SP_CLIENT_ID_KV
+          value: ${SSV_SPN_CLIENT_ID_KV_NAME}
+        - name: SP_CLIENT_SECRET_KV
+          value: ${SSV_SPN_CLIENT_SECRET_KV_NAME}
+
 
