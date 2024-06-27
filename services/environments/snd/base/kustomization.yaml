@@ -11,3 +11,4 @@ resources:
 - ../../../fcp/fcp-jkr-demo/base/patch
 - ../../../pp/pp-demo/base/patch
 - ../../../test/tst-test/base/patch
+- ../../../eutd/eutd-danny-test-local/base/patch

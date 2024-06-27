@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: danny-test-local-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: danny-test-local
+    backstage.io/kubernetes-team: eutd-danny-test-local
+spec:
+  releaseName: danny-test-local-infra
+  chart:
+    spec:
+      chart: danny-test-local-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: eutd-danny-test-local-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: eutd-danny-test-local
+  values:
+    namespace: eutd-danny-test-local
