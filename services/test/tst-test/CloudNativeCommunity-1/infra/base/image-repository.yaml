@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: CloudNativeCommunity-1
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: CloudNativeCommunity-1
+    backstage.io/kubernetes-team: tst-test
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/CloudNativeCommunity-1
+  interval: 5m0s
+  provider: azure
