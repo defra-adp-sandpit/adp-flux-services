@@ -5,3 +5,4 @@ resources:
 - ../../ncea-elasticsearch
 - ../../ncea-kibana
 - ../../ncea-harvester
+- ../../ncea-geonetwork
