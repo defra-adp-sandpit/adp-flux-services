@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: ffc-demo-claim-service-dbmigration
-  namespace: flux-config
+  namespace: fcp-demo
 spec:
   template:
     spec:
