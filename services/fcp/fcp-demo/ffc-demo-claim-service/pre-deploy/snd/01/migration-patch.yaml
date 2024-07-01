@@ -42,3 +42,5 @@ spec:
           value: AAG-Azure-ADP-fcp-demo-snd1-PostgresDB_Writer
         - name: PG_READER_AD_GROUP
           value: AAG-Azure-ADP-fcp-demo-snd1-PostgresDB_Reader
+        - name: SYSTEM_DEBUG
+          value: "true"
