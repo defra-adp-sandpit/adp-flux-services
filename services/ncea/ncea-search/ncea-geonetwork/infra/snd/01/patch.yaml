@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: ncea-geonetwork-infra
-      version: 0.1.0 # {"$imagepolicy": "flux-config:ncea-geonetwork-snd-01:tag"}
+      version: 4.2.8-alpha.601311 # {"$imagepolicy": "flux-config:ncea-geonetwork-snd-01:tag"}
   values:
     namespace: ${TEAM_NAMESPACE}
     fluxConfigNamespace: ${FLUX_CONFIG_NAMESPACE}
