@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.0 # {"$imagepolicy": "flux-config:ncea-geonetwork-snd-01:tag"}
+      version: 4.2.8-alpha.601908 # {"$imagepolicy": "flux-config:ncea-geonetwork-snd-01:tag"}
   values:
     environment: production
     name: ncea-geonetwork
