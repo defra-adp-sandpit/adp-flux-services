@@ -34,4 +34,4 @@ spec:
     - kind: ConfigMap
       name: adp-platform-vars
     - kind: ConfigMap
-      name: ffc-demo-claim-service-mi-credential
+      name: fcp-demo-mi-credential
