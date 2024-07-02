@@ -5,7 +5,6 @@ resources:
 - notification.yaml
 - ../../../fcp/fcp-demo/base/patch
 - ../../../adp-platform/kustomize.yaml
-- ../../../ncea/ncea-search/base/patch
 - ../../../ffc/ffc-demo/base/patch
 - ../../../eutd/eutd-adp-test/base/patch
 - ../../../fcp/fcp-jkr-demo/base/patch
