@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ADP-JKR-Example
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:ADP-JKR-Example-snd-03:tag"}
+  values:
+    environment: production
+    name: ADP-JKR-Example
+    namespace: fcp-jkr-demo
+    teamResourceGroupName: ${TEAM_RG}
+    image: sndadpinfcr3401.azurecr.io/image/ADP-JKR-Example:0.1.0 # {"$imagepolicy": "flux-config:ADP-JKR-Example-snd-03"}
+    serviceAccount:
+      name: ADP-JKR-Example
+    container:
+      imagePullPolicy: Always
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
+    storageAccountPrefix: ${STORAGEACCOUNT_PREFIX}
+    enablePrivateEndpoint: ${ENABLE_PRIVATE_ENDPOINT}
