@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: test-add-mi-appinsights
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 0.1.0 # {"$imagepolicy": "flux-config:test-add-mi-appinsights-snd-03:tag"}
+  values:
+    environment: production
+    name: test-add-mi-appinsights
+    namespace: fcp-jkr-demo
+    teamResourceGroupName: ${TEAM_RG}
+    image: sndadpinfcr3401.azurecr.io/image/test-add-mi-appinsights:0.1.0 # {"$imagepolicy": "flux-config:test-add-mi-appinsights-snd-03"}
+    serviceAccount:
+      name: test-add-mi-appinsights
+    container:
+      imagePullPolicy: Always
+    deployment:
+      priorityClassName: default
+    containerConfigMap:
+      configServiceName: ${APPCONFIG_NAME}
+      configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
+      serviceMIClientId: ${clientId}
+    storageAccountPrefix: ${STORAGEACCOUNT_PREFIX}
+    enablePrivateEndpoint: ${ENABLE_PRIVATE_ENDPOINT}
