@@ -12,7 +12,7 @@ spec:
     name: services-repository
     namespace: flux-config
   path: ./services/fcp/fcp-demo/ffc-demo-claim-service/infra/${ENVIRONMENT}/${ENVIRONMENT_ID}
-  interval: 3m0s
+  interval: 2m50s
   timeout: 2m0s
   prune: true
   wait: true
