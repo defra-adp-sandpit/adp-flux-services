@@ -10,8 +10,8 @@ spec:
     kind: GitRepository
     name: services-repository
     namespace: flux-config
-  interval: 2m50s
-  timeout: 1m0s
+  interval: 60m0s
+  timeout: 2m0s
   prune: true
   path: ./services/fcp/fcp-demo/${ENVIRONMENT}/${ENVIRONMENT_ID}
   postBuild:
