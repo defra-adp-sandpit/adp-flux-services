@@ -6,13 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.0 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-snd-01:tag"}
+      version: 5.2.6-alpha.608185 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-snd-01:tag"}
   values:
     environment: production
     name: ffc-demo12-claim-service
     namespace: fcp-demo12
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service:0.1.0 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service:5.2.6-alpha.608185 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-snd-01"}
     serviceAccount:
       name: ffc-demo12-claim-service
     container:
