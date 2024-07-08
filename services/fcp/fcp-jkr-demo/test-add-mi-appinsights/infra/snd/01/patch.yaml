@@ -33,6 +33,7 @@ spec:
     azrMSTPrivateLinkDNSUKWestResourceGroupName: ${AZR_MST_PRIVATELINKDNS_UKWEST_RG}
     platformDbAdmin: ${PLATFORM_DB_ADMIN}
     serviceMIName: ${TEAM_MI_PREFIX}-${SERVICE_NAME}
+    adGroup: AAG-Azure-ADP-SND1-AppInsight_Monitoring-Metrics-Reader-fail
     ssvSharedSubscriptionId: ${SSV_SHARED_SUBSCRIPTION_ID}
     ssvSpnClientIdKvName: ${SSV_SPN_CLIENT_ID_KV_NAME}
     ssvSpnClientSecretKvName: ${SSV_SPN_CLIENT_SECRET_KV_NAME}
