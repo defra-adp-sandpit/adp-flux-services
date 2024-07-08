@@ -15,11 +15,12 @@ spec:
     name: services-repository
     namespace: flux-config
   path: ./services/fcp/fcp-demo2/ffc-demo2-claim-service/pre-deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
-  interval: 5m
-  timeout: 3m
+  interval: 60m0s
+  timeout: 3m0s 
   prune: true
   wait: true
   force: true
+  retryInterval: 2m0s
   postBuild:
     substitute:
       SHARED_POSTGRES_SERVER_01: ${SHARED_POSTGRES_SERVER_01}

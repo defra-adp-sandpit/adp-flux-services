@@ -12,11 +12,12 @@ spec:
     name: services-repository
     namespace: flux-config
   path: ./services/fcp/fcp-demo38/ffc-demo38-claim-service/infra/${ENVIRONMENT}/${ENVIRONMENT_ID}
-  interval: 5m
-  timeout: 3m
+  interval: 60m0s
+  timeout: 3m0s 
   prune: true
   wait: true
   force: true
+  retryInterval: 2m0s
   postBuild:
     substitute:
       SERVICE_NAME: ffc-demo38-claim-service
