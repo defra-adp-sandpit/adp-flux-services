@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-demo39-claim-service
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo39-claim-service
+    backstage.io/kubernetes-team: fcp-demo39
+spec:
+  releaseName: ffc-demo39-claim-service
+  chart:
+    spec:
+      chart: ffc-demo39-claim-service
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-demo39-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-demo39
