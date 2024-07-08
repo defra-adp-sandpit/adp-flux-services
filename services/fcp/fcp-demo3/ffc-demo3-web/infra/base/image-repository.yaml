@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-id: ffc-demo3-web
     backstage.io/kubernetes-team: fcp-demo3
 spec:
-  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo3-web
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo-web
   interval: 5m0s
   provider: azure

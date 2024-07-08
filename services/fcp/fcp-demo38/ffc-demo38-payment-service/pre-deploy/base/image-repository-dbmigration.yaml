@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-id: ffc-demo38-payment-service
     backstage.io/kubernetes-team: fcp-demo38
 spec:
-  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo38-payment-service-dbmigration
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo-payment-service-dbmigration
   interval: 5m0s
   provider: azure

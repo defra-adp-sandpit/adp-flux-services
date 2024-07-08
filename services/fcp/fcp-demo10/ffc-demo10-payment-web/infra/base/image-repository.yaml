@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-id: ffc-demo10-payment-web
     backstage.io/kubernetes-team: fcp-demo10
 spec:
-  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo10-payment-web
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo-payment-web
   interval: 5m0s
   provider: azure

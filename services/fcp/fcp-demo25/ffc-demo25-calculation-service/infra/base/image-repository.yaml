@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-id: ffc-demo25-calculation-service
     backstage.io/kubernetes-team: fcp-demo25
 spec:
-  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo25-calculation-service
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo-calculation-service
   interval: 5m0s
   provider: azure

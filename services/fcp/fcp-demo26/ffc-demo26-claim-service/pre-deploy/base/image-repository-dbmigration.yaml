@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-id: ffc-demo26-claim-service
     backstage.io/kubernetes-team: fcp-demo26
 spec:
-  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo26-claim-service-dbmigration
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo-claim-service-dbmigration
   interval: 5m0s
   provider: azure

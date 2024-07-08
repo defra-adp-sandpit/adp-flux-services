@@ -6,13 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.0 # {"$imagepolicy": "flux-config:ffc-demo38-calculation-service-snd-01:tag"}
+      version: 0.1.0 # {"$imagepolicy": "flux-config:ffc-demo-calculation-service-snd-01:tag"}
   values:
     environment: production
     name: ffc-demo38-calculation-service
     namespace: fcp-demo38
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/ffc-demo38-calculation-service:0.1.0 # {"$imagepolicy": "flux-config:ffc-demo38-calculation-service-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/ffc-demo-calculation-service:0.1.0 # {"$imagepolicy": "flux-config:ffc-demo-calculation-service-snd-01"}
     serviceAccount:
       name: ffc-demo38-calculation-service
     container:
