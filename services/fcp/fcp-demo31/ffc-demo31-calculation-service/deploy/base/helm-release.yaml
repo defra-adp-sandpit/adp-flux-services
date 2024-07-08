@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-demo31-calculation-service
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo31-calculation-service
+    backstage.io/kubernetes-team: fcp-demo31
+spec:
+  releaseName: ffc-demo31-calculation-service
+  chart:
+    spec:
+      chart: ffc-demo31-calculation-service
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-demo31-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-demo31
