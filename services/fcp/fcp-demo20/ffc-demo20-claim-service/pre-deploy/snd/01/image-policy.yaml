@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: ffc-demo20-claim-service-dbmigration-snd-01
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo20-claim-service
+    backstage.io/kubernetes-team: fcp-demo20
+spec:
+  imageRepositoryRef:
+    name: ffc-demo20-claim-service-dbmigration
+  policy:
+    semver:
+      range: '>=0.1.0-0'
