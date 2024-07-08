@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: ffc-demo18-claim-service-dbmigration
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo18-claim-service
+    backstage.io/kubernetes-team: fcp-demo18
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/ffc-demo18-claim-service-dbmigration
+  interval: 5m0s
+  provider: azure
