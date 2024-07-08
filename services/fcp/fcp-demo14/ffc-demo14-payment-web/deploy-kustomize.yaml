@@ -1,0 +1,35 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: ffc-demo14-payment-web-deploy
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo14-payment-web
+    backstage.io/kubernetes-team: fcp-demo14
+spec:
+  dependsOn:
+  - name: ffc-demo14-payment-web-infra
+    namespace: flux-config
+  sourceRef:
+    kind: GitRepository
+    name: services-repository
+    namespace: flux-config
+  path: ./services/fcp/fcp-demo14/ffc-demo14-payment-web/deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
+  interval: 5m
+  timeout: 3m
+  prune: true
+  wait: true
+  force: true
+  postBuild:
+    substitute:
+      SERVICE_NAME: ffc-demo14-payment-web
+      TEAM_NAMESPACE: ${TEAM_NAMESPACE}
+      TEAM_NAME: ${TEAM_NAME}
+      TEAM_RG: ${TEAM_RG}
+      APPCONFIG_NAME: ${APPCONFIG_NAME}
+      APPCONFIG_MI_CLIENTID: ${APPCONFIG_MI_CLIENTID}
+    substituteFrom:
+    - kind: ConfigMap
+      name: adp-platform-vars
+    - kind: ConfigMap
+      name: ffc-demo14-payment-web-mi-credential
