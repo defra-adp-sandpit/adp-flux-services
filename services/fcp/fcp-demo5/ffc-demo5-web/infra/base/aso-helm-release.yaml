@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-demo5-web-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo5-web
+    backstage.io/kubernetes-team: fcp-demo5
+spec:
+  releaseName: ffc-demo5-web-infra
+  chart:
+    spec:
+      chart: ffc-demo5-web-infra
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-demo5-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-demo5
+  values:
+    namespace: fcp-demo5
