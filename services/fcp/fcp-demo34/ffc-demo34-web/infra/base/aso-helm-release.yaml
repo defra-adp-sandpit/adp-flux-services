@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo34-web-infra
   chart:
     spec:
-      chart: ffc-demo34-web-infra
+      chart: ffc-demo-web-infra
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

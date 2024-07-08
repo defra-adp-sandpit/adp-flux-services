@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo21-payment-web-infra
   chart:
     spec:
-      chart: ffc-demo21-payment-web-infra
+      chart: ffc-demo-payment-web-infra
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

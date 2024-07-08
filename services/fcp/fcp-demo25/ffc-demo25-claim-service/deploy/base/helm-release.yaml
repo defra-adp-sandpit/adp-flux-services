@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo25-claim-service
   chart:
     spec:
-      chart: ffc-demo25-claim-service
+      chart: ffc-demo-claim-service
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

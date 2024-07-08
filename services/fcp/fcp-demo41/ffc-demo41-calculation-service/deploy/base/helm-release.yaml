@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo41-calculation-service
   chart:
     spec:
-      chart: ffc-demo41-calculation-service
+      chart: ffc-demo-calculation-service
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

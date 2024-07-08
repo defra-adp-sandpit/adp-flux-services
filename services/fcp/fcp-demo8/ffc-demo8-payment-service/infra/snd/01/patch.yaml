@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: ffc-demo8-payment-service-infra
+      chart: ffc-demo-payment-service-infra
       version: 4.3.5 # {"$imagepolicy": "flux-config:ffc-demo-payment-service-snd-01:tag"}
   values:
     namespace: ${TEAM_NAMESPACE}

@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo4-calculation-service-infra
   chart:
     spec:
-      chart: ffc-demo4-calculation-service-infra
+      chart: ffc-demo-calculation-service-infra
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

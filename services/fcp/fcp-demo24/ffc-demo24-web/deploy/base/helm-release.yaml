@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo24-web
   chart:
     spec:
-      chart: ffc-demo24-web
+      chart: ffc-demo-web
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

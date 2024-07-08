@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo37-payment-service
   chart:
     spec:
-      chart: ffc-demo37-payment-service
+      chart: ffc-demo-payment-service
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:

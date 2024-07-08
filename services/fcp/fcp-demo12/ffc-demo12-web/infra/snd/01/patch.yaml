@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: ffc-demo12-web-infra
+      chart: ffc-demo-web-infra
       version: 4.33.4-alpha.607389 # {"$imagepolicy": "flux-config:ffc-demo-web-snd-01:tag"}
   values:
     namespace: ${TEAM_NAMESPACE}

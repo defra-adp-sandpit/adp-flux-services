@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: ffc-demo41-calculation-service-infra
+      chart: ffc-demo-calculation-service-infra
       version: 4.3.29-alpha.554809 # {"$imagepolicy": "flux-config:ffc-demo-calculation-service-snd-01:tag"}
   values:
     namespace: ${TEAM_NAMESPACE}

@@ -10,7 +10,7 @@ spec:
   releaseName: ffc-demo24-payment-web
   chart:
     spec:
-      chart: ffc-demo24-payment-web
+      chart: ffc-demo-payment-web
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:
