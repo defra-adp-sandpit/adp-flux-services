@@ -13,3 +13,4 @@ resources:
 - ../../../eutd/eutd-danny-test-local/base/patch
 - ../../../fcp/fcp-demo1/base/patch
 - ../../../fcp/fcp-demo2/base/patch
+- ../../../fcp/fcp-demo3/base/patch

@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: ffc-demo3-calculation-service-snd-01
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo3-calculation-service
+    backstage.io/kubernetes-team: fcp-demo3
+spec:
+  imageRepositoryRef:
+    name: ffc-demo3-calculation-service
+  policy:
+    semver:
+      range: '>=0.1.0-0'
