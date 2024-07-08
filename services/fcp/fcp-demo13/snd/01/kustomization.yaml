@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+- ../../ffc-demo13-web
+- ../../ffc-demo13-payment-web
+- ../../ffc-demo13-claim-service
+- ../../ffc-demo13-payment-service
+- ../../ffc-demo13-calculation-service
