@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: test-add-mi-appinsights-infra
-      version: 0.1.1-alpha.608559 # {"$imagepolicy": "flux-config:test-add-mi-appinsights-snd-01:tag"}
+      version: 0.1.1-alpha.608787 # {"$imagepolicy": "flux-config:test-add-mi-appinsights-snd-01:tag"}
   values:
     namespace: ${TEAM_NAMESPACE}
     fluxConfigNamespace: ${FLUX_CONFIG_NAMESPACE}
