@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
       - name: ffc-demo-claim-service-dbmigration
-        image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service-dbmigration:5.2.6-alpha.608185 # {"$imagepolicy": "flux-config:ffc-demo-claim-service-dbmigration-snd-01"}
+        image: sndadpinfcr1401.azurecr.io/image/ffc-demo-claim-service-dbmigration:5.2.6-alpha.608185
         env:
         - name: POSTGRES_HOST
           value: ${SHARED_POSTGRES_SERVER_01}.postgres.database.azure.com
@@ -42,5 +42,3 @@ spec:
           value: AAG-Azure-ADP-fcp-demo-snd1-PostgresDB_Writer
         - name: PG_READER_AD_GROUP
           value: AAG-Azure-ADP-fcp-demo-snd1-PostgresDB_Reader
-        - name: SYSTEM_DEBUG
-          value: "true"
