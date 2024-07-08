@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ffc-demo4-payment-service
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: ffc-demo4-payment-service
+    backstage.io/kubernetes-team: fcp-demo4
+spec:
+  releaseName: ffc-demo4-payment-service
+  chart:
+    spec:
+      chart: ffc-demo4-payment-service
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: fcp-demo4-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 5m0s
+  targetNamespace: fcp-demo4
