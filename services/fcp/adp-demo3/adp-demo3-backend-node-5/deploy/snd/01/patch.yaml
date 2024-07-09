@@ -6,13 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.1-alpha.611080 # {"$imagepolicy": "flux-config:adp-demo3-backend-node-5-snd-01:tag"}
+      version: 0.1.1-alpha.611093 # {"$imagepolicy": "flux-config:adp-demo3-backend-node-5-snd-01:tag"}
   values:
     environment: production
     name: adp-demo3-backend-node-5
     namespace: adp-demo3
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/fcp-jkr-demo-backend-node-1:0.1.1-alpha.611080 # {"$imagepolicy": "flux-config:adp-demo3-backend-node-5-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/fcp-jkr-demo-backend-node-1:0.1.1-alpha.611093 # {"$imagepolicy": "flux-config:adp-demo3-backend-node-5-snd-01"}
     serviceAccount:
       name: adp-demo3-backend-node-5
     container:
