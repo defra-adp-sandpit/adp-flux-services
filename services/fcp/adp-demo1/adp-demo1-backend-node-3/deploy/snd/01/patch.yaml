@@ -12,7 +12,7 @@ spec:
     name: adp-demo1-backend-node-3
     namespace: adp-demo1
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/fcp-jkr-demo-backend-node-1:0.1.1-alpha.581980 # {"$imagepolicy": "flux-config:adp-demo1-backend-node-3-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/adp-demo1-backend-node-3:0.1.1-alpha.581980 # {"$imagepolicy": "flux-config:adp-demo1-backend-node-3-snd-01"}
     serviceAccount:
       name: adp-demo1-backend-node-3
     container:
