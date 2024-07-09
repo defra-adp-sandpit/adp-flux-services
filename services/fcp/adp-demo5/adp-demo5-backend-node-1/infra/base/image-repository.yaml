@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: adp-demo5-backend-node-1
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: adp-demo5-backend-node-1
+    backstage.io/kubernetes-team: adp-demo5
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/fcp-jkr-demo-backend-node-1
+  interval: 60m0s
+  provider: azure
