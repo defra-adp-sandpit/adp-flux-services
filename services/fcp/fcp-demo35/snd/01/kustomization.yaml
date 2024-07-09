@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../base
-# - ../../ffc-demo35-web
-# - ../../ffc-demo35-payment-web
-# - ../../ffc-demo35-claim-service
-# - ../../ffc-demo35-payment-service
-# - ../../ffc-demo35-calculation-service
+ - ../../ffc-demo35-web
+ - ../../ffc-demo35-payment-web
+ - ../../ffc-demo35-claim-service
+ - ../../ffc-demo35-payment-service
+ - ../../ffc-demo35-calculation-service
