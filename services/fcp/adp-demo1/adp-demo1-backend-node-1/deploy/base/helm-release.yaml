@@ -10,7 +10,7 @@ spec:
   releaseName: adp-demo1-backend-node-1
   chart:
     spec:
-      chart: adp-demo1-backend-node-1
+      chart: fcp-jkr-demo-backend-node-1
       version: 0.1.0
       reconcileStrategy: ChartVersion
       sourceRef:
