@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: adp-demo2-backend-node-2
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: adp-demo2-backend-node-2
+    backstage.io/kubernetes-team: adp-demo2
+spec:
+  releaseName: adp-demo2-backend-node-2
+  chart:
+    spec:
+      chart: fcp-jkr-demo-backend-node-1
+      version: 0.1.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: adp-demo2-helm-repo
+        namespace: flux-config
+  install:
+    createNamespace: true
+  interval: 60m0s
+  targetNamespace: adp-demo2

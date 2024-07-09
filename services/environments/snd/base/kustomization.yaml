@@ -12,3 +12,4 @@ resources:
 - ../../../test/tst-test/base/patch
 - ../../../eutd/eutd-danny-test-local/base/patch
 - ../../../fcp/adp-demo1/base/patch
+- ../../../fcp/adp-demo2/base/patch
