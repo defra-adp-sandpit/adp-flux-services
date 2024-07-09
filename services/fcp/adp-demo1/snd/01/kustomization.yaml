@@ -4,3 +4,6 @@ resources:
 - ../../base
 - ../../adp-demo1-backend-node-1
 - ../../adp-demo1-backend-node-2
+- ../../adp-demo1-backend-node-3
+- ../../adp-demo1-backend-node-4
+- ../../adp-demo1-backend-node-5
