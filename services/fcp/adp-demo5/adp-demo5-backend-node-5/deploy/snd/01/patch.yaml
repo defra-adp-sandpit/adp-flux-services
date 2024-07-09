@@ -12,7 +12,7 @@ spec:
     name: adp-demo5-backend-node-5
     namespace: adp-demo5
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/fcp-jkr-demo-backend-node-1:0.1.1-alpha.611080 # {"$imagepolicy": "flux-config:adp-demo5-backend-node-5-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/adp-demo5-backend-node-5:0.1.1-alpha.611080 # {"$imagepolicy": "flux-config:adp-demo5-backend-node-5-snd-01"}
     serviceAccount:
       name: adp-demo5-backend-node-5
     container:
