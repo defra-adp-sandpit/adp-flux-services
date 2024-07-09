@@ -16,11 +16,11 @@ spec:
     namespace: flux-config
   path: ./services/fcp/fcp-demo/ffc-demo-claim-service/pre-deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
   interval: 60m0s
-  timeout: 3m0s 
+  timeout: 3m0s
+  retryInterval: 2m0s
   prune: true
   wait: true
   force: true
-  retryInterval: 2m0s
   postBuild:
     substitute:
       SHARED_POSTGRES_SERVER_01: ${SHARED_POSTGRES_SERVER_01}
@@ -35,4 +35,4 @@ spec:
     - kind: ConfigMap
       name: adp-platform-vars
     - kind: ConfigMap
-      name: ffc-demo-claim-service-mi-credential
+      name: fcp-demo-mi-credential
