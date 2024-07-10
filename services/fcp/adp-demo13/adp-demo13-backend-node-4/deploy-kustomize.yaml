@@ -1,0 +1,36 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: adp-demo13-backend-node-4-deploy
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: adp-demo13-backend-node-4
+    backstage.io/kubernetes-team: adp-demo13
+spec:
+  dependsOn:
+  - name: adp-demo13-backend-node-4-infra
+    namespace: flux-config
+  sourceRef:
+    kind: GitRepository
+    name: services-repository
+    namespace: flux-config
+  path: ./services/fcp/adp-demo13/adp-demo13-backend-node-4/deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
+  interval: 60m0s
+  timeout: 3m0s
+  retryInterval: 2m0s
+  prune: true
+  wait: true
+  force: true
+  postBuild:
+    substitute:
+      SERVICE_NAME: adp-demo13-backend-node-4
+      TEAM_NAMESPACE: ${TEAM_NAMESPACE}
+      TEAM_NAME: ${TEAM_NAME}
+      TEAM_RG: ${TEAM_RG}
+      APPCONFIG_NAME: ${APPCONFIG_NAME}
+      APPCONFIG_MI_CLIENTID: ${APPCONFIG_MI_CLIENTID}
+    substituteFrom:
+    - kind: ConfigMap
+      name: adp-platform-vars
+    - kind: ConfigMap
+      name: adp-demo13-backend-node-4-mi-credential

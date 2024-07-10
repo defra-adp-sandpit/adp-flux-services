@@ -1,0 +1,36 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: adp-demo13-base
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-team: adp-demo13
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: services-repository
+    namespace: flux-config
+  interval: 3m
+  timeout: 2m
+  prune: true
+  path: ./services/fcp/adp-demo13/${ENVIRONMENT}/${ENVIRONMENT_ID}
+  postBuild:
+    substitute:
+      TEAM_NAMESPACE: adp-demo13
+      TEAM_NAME: adp-demo13-team
+      TEAM_RG: ${SERVICES_INFRA_RG}-adp-demo13
+      APPCONFIG_MI_CLIENTID: ${APPCONFIG_MI_CLIENTID}
+      APPCONFIG_NAME: ${APPCONFIG_NAME}
+      SERVICE_CODE: ADP
+      PLATFORM_DB_ADMIN: adp-platform-db-aad-admin
+      TEAM_CPU_QUOTA: "2000"
+      TEAM_MEMORY_QUOTA: 3000Mi
+      TEAM_PODS_QUOTA: "20"
+      CONTAINER_MAX_CPU: 500m
+      CONTAINER_MAX_MEMORY: 1000Mi
+    substituteFrom:
+    - kind: ConfigMap
+      name: adp-demo13-mi-credential
+      optional: true
+    - kind: ConfigMap
+      name: adp-platform-vars
