@@ -6,13 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.1.2-alpha.627692 # {"$imagepolicy": "flux-config:adp-test-aa1-snd-01:tag"}
+      version: 0.1.2-alpha.629270 # {"$imagepolicy": "flux-config:adp-test-aa1-snd-01:tag"}
   values:
     environment: production
     name: adp-test-aa1
     namespace: tst-test
     teamResourceGroupName: ${TEAM_RG}
-    image: sndadpinfcr1401.azurecr.io/image/adp-test-aa1:0.1.2-alpha.627692 # {"$imagepolicy": "flux-config:adp-test-aa1-snd-01"}
+    image: sndadpinfcr1401.azurecr.io/image/adp-test-aa1:0.1.2-alpha.629270 # {"$imagepolicy": "flux-config:adp-test-aa1-snd-01"}
     serviceAccount:
       name: adp-test-aa1
     container:
