@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-- ../../base
-#- ../../adp-demo11-backend-node-1
-#- ../../adp-demo11-backend-node-2
-#- ../../adp-demo11-backend-node-3
-#- ../../adp-demo11-backend-node-4
-#- ../../adp-demo11-backend-node-5
