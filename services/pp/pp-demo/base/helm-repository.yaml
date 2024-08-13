@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: pp-demo-helm-repo
@@ -7,6 +7,6 @@ metadata:
     backstage.io/kubernetes-team: pp-demo
 spec:
   type: oci
-  interval: 5m
+  interval: 3m0s
   url: oci://${APPLICATION_ACR_NAME}.azurecr.io/helm
   provider: azure

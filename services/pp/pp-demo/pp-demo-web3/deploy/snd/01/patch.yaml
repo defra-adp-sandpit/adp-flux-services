@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: pp-demo-web3
@@ -11,6 +11,7 @@ spec:
     environment: production
     name: pp-demo-web3
     namespace: pp-demo
+    teamResourceGroupName: ${TEAM_RG}
     image: sndadpinfcr1401.azurecr.io/image/pp-demo-web3:0.1.0 # {"$imagepolicy": "flux-config:pp-demo-web3-snd-01"}
     serviceAccount:
       name: pp-demo-web3
@@ -22,3 +23,5 @@ spec:
       configServiceName: ${APPCONFIG_NAME}
       configServiceMIClientId: ${APPCONFIG_MI_CLIENTID}
       serviceMIClientId: ${clientId}
+    storageAccountPrefix: ${STORAGEACCOUNT_PREFIX}
+    enablePrivateEndpoint: ${ENABLE_PRIVATE_ENDPOINT}

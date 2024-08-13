@@ -1,0 +1,30 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: pp-demo-service-infra
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: pp-demo-service
+    backstage.io/kubernetes-team: pp-demo
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: services-repository
+    namespace: flux-config
+  path: ./services/pp/pp-demo/pp-demo-service/infra/${ENVIRONMENT}/${ENVIRONMENT_ID}
+  interval: 60m0s
+  timeout: 3m0s
+  retryInterval: 2m0s
+  prune: true
+  wait: true
+  force: true
+  postBuild:
+    substitute:
+      SERVICE_NAME: pp-demo-service
+      TEAM_RG: ${TEAM_RG}
+      TEAM_NAMESPACE: ${TEAM_NAMESPACE}
+      TEAM_NAME: ${TEAM_NAME}
+      SERVICE_CODE: ${SERVICE_CODE}
+    substituteFrom:
+    - kind: ConfigMap
+      name: adp-platform-vars

@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: aj-demo-web
+  namespace: flux-config
+  labels:
+    backstage.io/kubernetes-id: aj-demo-web
+    backstage.io/kubernetes-team: pp-demo
+spec:
+  image: ${APPLICATION_ACR_NAME}.azurecr.io/image/aj-demo-web
+  interval: 3m0s
+  provider: azure
