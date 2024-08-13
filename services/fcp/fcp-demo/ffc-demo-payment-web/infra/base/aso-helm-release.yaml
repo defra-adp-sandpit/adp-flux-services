@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: ffc-demo-payment-web-infra
@@ -19,7 +19,7 @@ spec:
         namespace: flux-config
   install:
     createNamespace: true
-  interval: 60m0s
+  interval: 5m0s
   targetNamespace: fcp-demo
   values:
     namespace: fcp-demo

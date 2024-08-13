@@ -15,9 +15,8 @@ spec:
     name: services-repository
     namespace: flux-config
   path: ./services/fcp/fcp-demo/ffc-demo-payment-service/deploy/${ENVIRONMENT}/${ENVIRONMENT_ID}
-  interval: 60m0s
-  timeout: 3m0s
-  retryInterval: 2m0s
+  interval: 5m
+  timeout: 3m
   prune: true
   wait: true
   force: true
